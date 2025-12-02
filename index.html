@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Pet Game</title>
+    <title>Virtual tamagotxi</title>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
@@ -11,6 +12,7 @@
             color: white;
             text-align: center;
         }
+
         .pet-screen {
             border: 4px solid #fff;
             width: 300px;
@@ -19,16 +21,19 @@
             border-radius: 10px;
             background-color: #444;
         }
+
         .pet-face {
             font-size: 80px;
             margin: 20px 0;
         }
+
         .stats {
             display: flex;
             justify-content: space-around;
             font-size: 18px;
             margin-bottom: 20px;
         }
+
         .boton {
             background-color: #f5c103;
             border: none;
@@ -38,66 +43,72 @@
             font-weight: bold;
             margin: 5px;
         }
-        .boton:hover { background-color: #fff; }
-        .game-over { color: red; font-size: 30px; font-weight: bold; }
-body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #222;
-    color: white;
-    text-align: center;
-}
 
-.pet-screen {
-    border: 4px solid #fff;
-    width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #444;
-}
+        .boton:hover {
+            background-color: #fff;
+        }
 
-.pet-face {
-    font-size: 80px;
-    margin: 20px 0;
-}
+        .game-over {
+            color: red;
+            font-size: 30px;
+            font-weight: bold;
+        }
 
-.stats {
-    display: flex;
-    justify-content: space-around;
-    font-size: 18px;
-    margin-bottom: 20px;
-}
+        .boton {
+            background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+            background-color: #ffec64;
+            border-radius: 6px;
+            border: 1px solid #ffaa22;
+            display: inline-block;
+            cursor: pointer;
+            color: #333;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 10px 24px;
+            text-decoration: none;
+            text-shadow: 0px 1px 0px #ffee66;
+            box-shadow: 0px 4px 0px #c7861b;
+            /* "Itzalak" egiten du 3D efektua */
+            transition: all 0.1s;
+        }
 
-.boton {
-    background-color: #f5c103;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    margin: 5px;
-}
+        /* Sakatzean efektua */
+        .boton:active {
+            position: relative;
+            top: 4px;
+            /* Beherantz mugitzen da */
+            box-shadow: 0px 0px 0px #c7861b;
+            /* Itzala desagertzen da */
+        }
 
-.boton:hover { background-color: #fff; }
-.game-over { color: red; font-size: 30px; font-weight: bold; }
-
-</style>
-<div id="app"></div>
-<script src="app.js"></script>
+        /* Botoia DESAKTIBATUTA (Cooldown-ean dagoenean) */
+        .boton:disabled {
+            background: #cccccc;
+            border: 1px solid #999999;
+            color: #666666;
+            cursor: not-allowed;
+            box-shadow: none;
+            top: 0px;
+            filter: grayscale(100%);
+        }
+    </style>
 </head>
+
 <body>
     <div class="pet-screen">
-        <div class="pet-face" id="petFace">😊</div>
+        <div class="pet-face">😺</div>
         <div class="stats">
-            <div>Hmabre: <span id="Hambre">5</span></div>
-            <div>Felicidad: <span id="Felicidad">5</span></div>
-            <div>Energia: <span id="Energia">5</span></div>
+            <div>jan: <span id="hunger">5</span></div>
+            <div>postasuna: <span id="happiness">5</span></div>
+            <div>energia: <span id="energy">5</span></div>
         </div>
-        <button class="boton" onclick="elikatu()">jan</button>
-        <button class="boton" onclick="jolastu()">jolastu</button>
-        <button class="boton" onclick="hasi()">hasi berriro</button>
-        <div id="gameOverMessage" class="game-over" style="display:none;">Game Over!</div>
+        <button class="boton" id="feed-btn">jan</button>
+        <button class="boton" id="play-btn">jolastu</button>
+        <button class="boton" id="sleep-btn">lo egin</button>
+        <div class="game-over" id="game-over" style="display:none;">GAME OVER</div>
     </div>
     <script src="app.js"></script>
 </body>
+
 </html>
